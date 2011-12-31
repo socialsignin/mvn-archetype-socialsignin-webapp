@@ -10,7 +10,7 @@ local usernames or passwords are needed. )
 
 To use this archetype use the mvn archetype:generate plugin:
 
-mvn archetype:generate 
+mvn archetype:generate \
 -DarchetypeRepository=https://github.com/OpenSourceAgility/opensourceagility-mvn-repo/raw/master/snapshots \
 -DarchetypeGroupId=org.socialsignin  \
 -DarchetypeArtifactId=mvn-archetype-socialsignin-webapp  \
