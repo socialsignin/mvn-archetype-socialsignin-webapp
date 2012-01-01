@@ -38,6 +38,18 @@ Public Area.
 
 </c:forEach>
 
+<c:if test="${not empty profileUrls}">
+
+<p>Your profile urls:</p>
+
+<c:forEach var="profileUrl"
+	items="${profileUrls}">
+		<p><c:out value="${profileUrl}" /></p>
+</c:forEach>
+
+</c:if>
+
+
 <c:forEach var="entry"
 	items="${registeredProviderRoleNamesByProviderName}">
 

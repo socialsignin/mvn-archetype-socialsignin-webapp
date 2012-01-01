@@ -15,9 +15,35 @@
  */
 package ${package};
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+#if(${providerList.contains('facebook')})
+import org.socialsignin.provider.facebook.FacebookProviderService;
+import org.springframework.social.facebook.api.Facebook;
+#end
+#if(${providerList.contains('lastfm')})
+import org.socialsignin.provider.lastfm.LastFmProviderService;
+import org.springframework.social.lastfm.api.LastFm;
+#end
+#if(${providerList.contains('linkedin')})
+import org.socialsignin.provider.linkedin.LinkedInProviderService;
+import org.springframework.social.linkedin.api.LinkedIn;
+#end
+#if(${providerList.contains('mixcloud')})
+import org.socialsignin.provider.mixcloud.MixcloudProviderService;
+import org.springframework.social.mixcloud.api.Mixcloud;
+#end
+#if(${providerList.contains('soundcloud')})
+import org.socialsignin.provider.soundcloud.SoundCloudProviderService;
+import org.springframework.social.soundcloud.api.SoundCloud;
+#end
+#if(${providerList.contains('twitter')})
+import org.socialsignin.provider.twitter.TwitterProviderService;
+import org.springframework.social.twitter.api.Twitter;
+#end
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -30,6 +56,36 @@ public class SocialSignInShowcaseController {
 
 	@Autowired
 	private ConnectionFactoryRegistry connectionFactoryRegistry;
+	
+	#if(${providerList.contains('lastfm')})
+	@Autowired
+	private LastFmProviderService lastFmProviderService;
+	#end
+	
+	#if(${providerList.contains('facebook')})
+	@Autowired
+	private FacebookProviderService facebookProviderService;
+	#end
+	
+	#if(${providerList.contains('twitter')})
+	@Autowired
+	private TwitterProviderService twitterProviderService;
+	#end
+	
+	#if(${providerList.contains('mixcloud')})
+	@Autowired
+	private MixcloudProviderService mixcloudProviderService;
+	#end
+	
+	#if(${providerList.contains('soundcloud')})
+	@Autowired
+	private SoundCloudProviderService soundCloudProviderService;
+	#end
+	
+	#if(${providerList.contains('linkedin')})
+	@Autowired
+	private LinkedInProviderService linkedInProviderService;
+	#end
 
 	private String getAuthenticatedUserName() {
 		Authentication authentication = SecurityContextHolder.getContext()
@@ -83,7 +139,60 @@ public class SocialSignInShowcaseController {
 
 		// Display on the jsp which security level the page is intended for
 		model.put("securityLevel", "Protected");
-
+		
+		List<String> profileUrls = new ArrayList<String>();
+		
+		#if(${providerList.contains('lastfm')})
+		LastFm lastFm = lastFmProviderService.getAuthenticatedApi();
+		if (lastFm != null)
+		{
+			profileUrls.add(lastFm.userOperations().getUserProfile().getUrl());
+		}
+		#end
+		
+		#if(${providerList.contains('facebook')})
+		Facebook facebook = facebookProviderService.getAuthenticatedApi();
+		if (facebook != null)
+		{
+			profileUrls.add(facebook.userOperations().getUserProfile().getLink());	
+		}
+		#end
+		
+		#if(${providerList.contains('twitter')})
+		Twitter twitter = twitterProviderService.getAuthenticatedApi();
+		if (twitter != null)
+		{
+			profileUrls.add(twitter.userOperations().getUserProfile().getProfileUrl());
+		}
+		#end
+		
+		#if(${providerList.contains('mixcloud')})
+		Mixcloud mixcloud = mixcloudProviderService.getAuthenticatedApi();
+		if (mixcloud != null)
+		{
+			profileUrls.add(mixcloud.meOperations().getUserProfile().getUrl());
+		}
+		#end
+		
+		#if(${providerList.contains('soundcloud')})
+		SoundCloud soundCloud = soundCloudProviderService.getAuthenticatedApi();
+		if (soundCloud != null)
+		{
+			profileUrls.add(soundCloud.meOperations().getUserProfile().getPermalinkUrl());
+		}
+		#end
+		
+		#if(${providerList.contains('linkedin')})
+		LinkedIn linkedIn = linkedInProviderService.getAuthenticatedApi();
+		if (linkedIn != null)
+		{
+			profileUrls.add(linkedIn.profileOperations().getProfileUrl());
+		}
+		#end
+			
+		model.put("profileUrls",
+				profileUrls);
+		
 		model.put("registeredProviderRoleNamesByProviderName",
 				getRegisteredProviderRoleNamesByProviderName());
 
