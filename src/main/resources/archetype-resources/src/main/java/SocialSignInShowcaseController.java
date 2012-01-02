@@ -87,59 +87,27 @@ public class SocialSignInShowcaseController {
 	private LinkedInProviderService linkedInProviderService;
 	#end
 
-	private String getAuthenticatedUserName() {
-		Authentication authentication = SecurityContextHolder.getContext()
-				.getAuthentication();
-		return authentication == null ? null : authentication.getName();
-	}
-
-	private Map<String, String> getRegisteredProviderRoleNamesByProviderName() {
-		Map<String, String> registeredProviderRoleNamesByProviderName = new HashMap<String, String>();
-		for (String registeredProviderId : connectionFactoryRegistry
-				.registeredProviderIds()) {
-			registeredProviderRoleNamesByProviderName.put(registeredProviderId,
-					"ROLE_USER_" + registeredProviderId.toUpperCase());
-		}
-		return registeredProviderRoleNamesByProviderName;
-
-	}
 
 	@RequestMapping("/login")
 	public String login(Map model) {
-
-		model.put("registeredProviderRoleNamesByProviderName",
-				getRegisteredProviderRoleNamesByProviderName());
 		return "oauthlogin";
 	}
 
 	@RequestMapping("/connectWithProvider")
 	public String connect(Map model) {
 
-		model.put("registeredProviderRoleNamesByProviderName",
-				getRegisteredProviderRoleNamesByProviderName());
 		return "oauthconnect";
 	}
 
 	@RequestMapping("/")
 	public String helloPublicWorld(Map model) {
-		model.put("userName", getAuthenticatedUserName());
 
-		// Display on the jsp which security level the page is intended for
-		model.put("securityLevel", "Public");
-
-		model.put("registeredProviderRoleNamesByProviderName",
-				getRegisteredProviderRoleNamesByProviderName());
-
-		return "helloWorld";
+		return "publicPage";
 	}
+
 
 	@RequestMapping("/protected")
 	public String helloProtectedWorld(Map model) {
-		model.put("userName", getAuthenticatedUserName());
-
-		// Display on the jsp which security level the page is intended for
-		model.put("securityLevel", "Protected");
-		
 		List<String> profileUrls = new ArrayList<String>();
 		
 		#if(${providerList.contains('lastfm')})
@@ -192,11 +160,8 @@ public class SocialSignInShowcaseController {
 			
 		model.put("profileUrls",
 				profileUrls);
-		
-		model.put("registeredProviderRoleNamesByProviderName",
-				getRegisteredProviderRoleNamesByProviderName());
-
-		return "helloWorld";
+	
+		return "protectedPage";
 	}
 
 }
