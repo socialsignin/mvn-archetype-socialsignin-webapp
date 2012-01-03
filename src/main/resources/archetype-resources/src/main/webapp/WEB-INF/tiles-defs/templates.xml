@@ -61,7 +61,7 @@
 	</definition>
 	#end
 
-	#if(${providerList.contains('facbook')})
+	#if(${providerList.contains('facebook')})
 	<definition name="connect/facebookConnected.layout" extends=".mainTemplateWithHeader">
 		<put-attribute name="providerName" value="Facebook"
 			type="string" cascade="true " />
