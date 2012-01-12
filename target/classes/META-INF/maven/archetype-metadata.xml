@@ -1,0 +1,103 @@
+<archetype-descriptor xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
+  name="mvn-archetype-socialsignin-webapp" partial="false" >
+ 
+  <requiredProperties>
+    <requiredProperty key="providerList" >
+      <defaultValue>facebook,twitter,lastfm,soundcloud,mixcloud,linkedin</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="useInMemoryDataSource" >
+      <defaultValue>true</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="facebookClientId" >
+      <defaultValue>not set</defaultValue>
+    </requiredProperty>
+        <requiredProperty key="facebookClientSecret" >
+      <defaultValue>not set</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="twitterConsumerKey" >
+      <defaultValue>not set</defaultValue>
+    </requiredProperty>      
+     <requiredProperty key="twitterConsumerSecret" >
+      <defaultValue>not set</defaultValue>
+    </requiredProperty> 
+     <requiredProperty key="soundcloudConsumerKey" >
+      <defaultValue>not set</defaultValue>
+    </requiredProperty>      
+     <requiredProperty key="soundcloudConsumerSecret" >
+      <defaultValue>not set</defaultValue>
+    </requiredProperty>       
+  <requiredProperty key="mixcloudConsumerKey" >
+      <defaultValue>not set</defaultValue>
+    </requiredProperty>      
+     <requiredProperty key="mixcloudConsumerSecret" >
+      <defaultValue>not set</defaultValue>
+    </requiredProperty>  
+     <requiredProperty key="lastfmConsumerKey" >
+      <defaultValue>not set</defaultValue>
+    </requiredProperty>      
+     <requiredProperty key="lastfmConsumerSecret" >
+      <defaultValue>not set</defaultValue>
+    </requiredProperty>   
+     <requiredProperty key="linkedinApiKey" >
+      <defaultValue>not set</defaultValue>
+    </requiredProperty>      
+     <requiredProperty key="linkedinSecretKey" >
+      <defaultValue>not set</defaultValue>
+    </requiredProperty>                
+  </requiredProperties>
+  <fileSets>
+    <fileSet filtered="true" packaged="true">
+      <directory>src/main/java</directory>
+      <includes>
+      <include>**/*.java</include>
+      </includes>
+      <excludes/>
+    </fileSet>
+    <fileSet filtered="true">
+      <directory>src/main/resources</directory>
+      <includes>
+      <include>*.properties</include>
+      </includes>
+      <excludes/>
+    </fileSet>
+      <fileSet filtered="false">
+      <directory>src/main/resources</directory>
+      <includes>
+      <include>*.xml</include>
+      </includes>
+      <excludes>
+      	<exclude>spring-config.xml</exclude>
+      </excludes>
+    </fileSet>
+         <fileSet filtered="true">
+      <directory>src/main/resources</directory>
+      <includes>
+      <include>spring-config.xml</include>
+      </includes>
+      <excludes/>
+    </fileSet>
+     <fileSet filtered="false">
+      <directory>src/main/webapp</directory>
+      <includes>
+      <include>*</include>
+      <include>**/*</include>
+      </includes>
+      <excludes>
+      	<exclude>WEB-INF/web.xml</exclude>
+      	<exclude>WEB-INF/tiles-defs/*</exclude>
+      </excludes>
+    </fileSet>    
+     <fileSet filtered="true">
+      <directory>src/main/webapp/WEB-INF</directory>
+      <includes>
+      <include>web.xml</include>
+       <include>tiles-defs/*</include>
+      
+      </includes>
+      
+      <excludes/>
+    </fileSet>
+  </fileSets>
+
+</archetype-descriptor>
