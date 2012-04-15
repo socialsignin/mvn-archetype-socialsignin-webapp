@@ -32,6 +32,10 @@
 
 		<org.socialsignin.linkedin.version>1.0.1-SNAPSHOT</org.socialsignin.linkedin.version>
 		#end
+		#if(${providerList.contains('tumblr')})
+
+		<org.socialsignin.tumblr.version>1.0.1-SNAPSHOT</org.socialsignin.tumblr.version>
+		#end
 		<org.springframework.version>3.1.0.RELEASE</org.springframework.version>
 		<org.springframework.social.version>1.0.1.RELEASE</org.springframework.social.version>
 		<org.springframework.security.version>3.1.0.RELEASE</org.springframework.security.version>
@@ -126,6 +130,13 @@
 			<groupId>org.socialsignin</groupId>
 			<artifactId>socialsignin-soundcloud</artifactId>
 			<version>${org.socialsignin.soundcloud.version}</version>
+		</dependency>
+		#end
+		#if(${providerList.contains('tumblr')})
+		<dependency>
+			<groupId>org.socialsignin</groupId>
+			<artifactId>socialsignin-tumblr</artifactId>
+			<version>${org.socialsignin.tumblr.version}</version>
 		</dependency>
 		#end
 		<dependency>

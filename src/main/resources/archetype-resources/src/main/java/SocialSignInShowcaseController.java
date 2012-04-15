@@ -44,6 +44,11 @@ import org.springframework.social.soundcloud.api.SoundCloud;
 import org.socialsignin.provider.twitter.TwitterProviderService;
 import org.springframework.social.twitter.api.Twitter;
 #end
+#if(${providerList.contains('tumblr')})
+import org.socialsignin.provider.tumblr.TumblrProviderService;
+import org.springframework.social.tumblr.api.Tumblr;
+import org.springframework.social.tumblr.api.UserInfoBlog;
+#end
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -85,6 +90,11 @@ public class SocialSignInShowcaseController {
 	#if(${providerList.contains('linkedin')})
 	@Autowired
 	private LinkedInProviderService linkedInProviderService;
+	#end
+	
+	#if(${providerList.contains('tumblr')})
+	@Autowired
+	private TumblrProviderService tumblrProviderService;
 	#end
 
 
@@ -155,6 +165,18 @@ public class SocialSignInShowcaseController {
 		if (linkedIn != null)
 		{
 			profileUrls.add(linkedIn.profileOperations().getProfileUrl());
+		}
+		#end
+		
+		#if(${providerList.contains('tumblr')})
+		Tumblr tumblr = tumblrProviderService.getAuthenticatedApi();
+		if (tumblr != null)
+		{
+			List<UserInfoBlog> blogs = tumblr.userOperations().info().getBlogs();
+			if (blogs != null && blogs.size() >0)
+			{
+				profileUrls.add(blogs.get(0).getUrl());
+			}
 		}
 		#end
 			

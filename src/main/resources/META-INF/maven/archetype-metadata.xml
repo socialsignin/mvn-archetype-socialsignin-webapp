@@ -4,7 +4,7 @@
  
   <requiredProperties>
     <requiredProperty key="providerList" >
-      <defaultValue>facebook,twitter,lastfm,soundcloud,mixcloud,linkedin</defaultValue>
+      <defaultValue>facebook,twitter,lastfm,soundcloud,mixcloud,linkedin,tumblr</defaultValue>
     </requiredProperty>
     <requiredProperty key="useInMemoryDataSource" >
       <defaultValue>true</defaultValue>
@@ -37,6 +37,12 @@
       <defaultValue>not set</defaultValue>
     </requiredProperty>      
      <requiredProperty key="lastfmConsumerSecret" >
+      <defaultValue>not set</defaultValue>
+    </requiredProperty>   
+         <requiredProperty key="tumblrConsumerKey" >
+      <defaultValue>not set</defaultValue>
+    </requiredProperty>      
+     <requiredProperty key="tumblrConsumerSecret" >
       <defaultValue>not set</defaultValue>
     </requiredProperty>   
      <requiredProperty key="linkedinApiKey" >

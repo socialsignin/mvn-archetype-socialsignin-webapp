@@ -60,6 +60,17 @@
 		<put-attribute name="body" value="/WEB-INF/providerConnect.jsp" />
 	</definition>
 	#end
+	
+	#if(${providerList.contains('tumblr')})
+	<definition name="connect/tumblrConnected.layout" extends=".mainTemplateWithHeader">
+		<put-attribute name="providerName" value="Tumblr" type="string"
+			cascade="true" />
+		<put-attribute name="body" value="/WEB-INF/providerConnected.jsp" />
+	</definition>
+	<definition name="connect/tumblrConnect.layout" extends=".mainTemplateWithHeader">
+		<put-attribute name="body" value="/WEB-INF/providerConnect.jsp" />
+	</definition>
+	#end
 
 	#if(${providerList.contains('facebook')})
 	<definition name="connect/facebookConnected.layout" extends=".mainTemplateWithHeader">
