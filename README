@@ -28,7 +28,7 @@ By default, support for all 7 providers will be generated (facebook,twitter,last
 the clientIds and secrets for each one will be "not set" in the environment.properties file and the app will
 use an in-memory database for development purposes. 
 
-( Thanks to Sam Douglassfor providing spring-social-tumblr module and helping us to showcase it here )
+( Thanks to Sam Douglass at https://github.com/sdouglass for providing spring-social-tumblr module and helping us to showcase it here )
 
 To override these defaults (ie. to change the list of providers supported, to set your client id and secrets for 
 your app, or to switch off in-memory database, answer 'N' when asked to confirm the default properties and you
