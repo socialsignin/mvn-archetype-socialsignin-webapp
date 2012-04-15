@@ -24,9 +24,11 @@ where the groupId,artifactId and version properties are your own project values.
 Properties which can be specified for this archetype are the list of providers to be supported, 
 the clientIds and secrets for each provider and whether to use the in memory database for quickstart.
 
-By default, support for all 6 providers will be generated (facebook,twitter,lastfm,soundcloud,mixcloud and linkedin),
+By default, support for all 7 providers will be generated (facebook,twitter,lastfm,soundcloud,mixcloud,linkedin and tumblr),
 the clientIds and secrets for each one will be "not set" in the environment.properties file and the app will
 use an in-memory database for development purposes. 
+
+( Thanks to Sam Douglassfor providing spring-social-tumblr module and helping us to showcase it here )
 
 To override these defaults (ie. to change the list of providers supported, to set your client id and secrets for 
 your app, or to switch off in-memory database, answer 'N' when asked to confirm the default properties and you
