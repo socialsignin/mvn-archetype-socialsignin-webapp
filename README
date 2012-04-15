@@ -34,8 +34,11 @@ can then enter your chosen values.
 
 
 Once you have created your new project using this archetype, you'll need to obtain client API accounts for your chosen
-providers and ensure that the client ids and secrets are set in the environment.properties file.  You may also need
-to configure the return urls set on each provider account to be http://localhost:8080/ (depending on the provider).
+providers and ensure that the client ids and secrets are set in the environment.properties file.  
+
+You will also need to configure the return urls set on each provider account to be http://localhost:8080/ 
+(depending on the provider).  The exception to this is for Tumblr where the return url will need to be set to 
+http://localhost:8080/signinOrConnect/tumblr
 
 You can then start your project webapp using jetty:
 
