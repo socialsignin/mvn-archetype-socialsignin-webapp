@@ -8,11 +8,11 @@
   <distributionManagement>
 	 	<repository>
 		<id>repo</id>
-			<url>https://github.com/OpenSourceAgility/opensourceagility-mvn-repo/raw/master/releases</url>
+			<url>http://repo.opensourceagility.com/releases</url>
 		</repository>
 		<snapshotRepository>
 			<id>snapshot-repo</id>
-			<url>https://github.com/OpenSourceAgility/opensourceagility-mvn-repo/raw/master/snapshots</url>
+			<url>http://repo.opensourceagility.com/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
 </project>
