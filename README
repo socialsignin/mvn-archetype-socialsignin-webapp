@@ -14,7 +14,7 @@ mvn archetype:generate \
 -DarchetypeRepository=http://repo.opensourceagility.com/snapshots \
 -DarchetypeGroupId=org.socialsignin  \
 -DarchetypeArtifactId=mvn-archetype-socialsignin-webapp  \
--DarchetypeVersion=1.0.1-SNAPSHOT \
+-DarchetypeVersion=1.0.2-SNAPSHOT \
 -DgroupId=com.mygroup \
 -DartifactId=myartifactid \
 -Dversion=1.0.0-SNAPSHOT 
