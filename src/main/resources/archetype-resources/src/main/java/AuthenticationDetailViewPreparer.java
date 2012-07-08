@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.social.connect.support.ConnectionFactoryRegistry;
+import org.socialsignin.springsocial.security.connect.SpringSocialSecurityConnectionFactory;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -30,8 +31,11 @@ public class AuthenticationDetailViewPreparer implements ViewPreparer {
 		Map<String, String> registeredProviderRoleNamesByProviderName = new HashMap<String, String>();
 		for (String registeredProviderId : connectionFactoryRegistry
 				.registeredProviderIds()) {
-			registeredProviderRoleNamesByProviderName.put(registeredProviderId,
+			if (!registeredProviderId.equals(SpringSocialSecurityConnectionFactory.SPRING_SOCIAL_SECURITY_PROVIDER_NAME))
+			{
+				registeredProviderRoleNamesByProviderName.put(registeredProviderId,
 					"ROLE_USER_" + registeredProviderId.toUpperCase());
+			}
 		}
 		return registeredProviderRoleNamesByProviderName;
 
