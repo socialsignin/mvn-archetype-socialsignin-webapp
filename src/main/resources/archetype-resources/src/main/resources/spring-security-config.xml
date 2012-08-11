@@ -53,6 +53,9 @@
 
 
 		<security:logout logout-url="/logout" />
+		
+		<access-denied-handler ref="springSocialSecurityAccessDeniedHandler"/>
+		
 
 		<anonymous />
 		<security:custom-filter position="FORM_LOGIN_FILTER"

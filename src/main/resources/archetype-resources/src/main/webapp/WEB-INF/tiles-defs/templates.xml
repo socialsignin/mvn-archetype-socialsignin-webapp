@@ -47,7 +47,7 @@
 
 
 	<definition name="connect/providerConnect.layout" extends=".mainTemplateWithHeader">
-		<put-attribute name="body" value="/WEB-INF/providerConnect.jsp" />
+		<put-attribute name="body" value="/WEB-INF/oauthconnect.jsp" />
 	</definition>
 
 	#if(${providerList.contains('twitter')})
@@ -57,7 +57,9 @@
 		<put-attribute name="body" value="/WEB-INF/providerConnected.jsp" />
 	</definition>
 	<definition name="connect/twitterConnect.layout" extends=".mainTemplateWithHeader">
-		<put-attribute name="body" value="/WEB-INF/providerConnect.jsp" />
+		<put-attribute name="provider" value="twitter" type="string"
+			cascade="true" />
+		<put-attribute name="body" value="/WEB-INF/oauthconnect.jsp" />
 	</definition>
 	#end
 	
@@ -68,7 +70,9 @@
 		<put-attribute name="body" value="/WEB-INF/providerConnected.jsp" />
 	</definition>
 	<definition name="connect/tumblrConnect.layout" extends=".mainTemplateWithHeader">
-		<put-attribute name="body" value="/WEB-INF/providerConnect.jsp" />
+			<put-attribute name="provider" value="tumblr" type="string"
+			cascade="true" />
+		<put-attribute name="body" value="/WEB-INF/oauthconnect.jsp" />
 	</definition>
 	#end
 
@@ -79,7 +83,9 @@
 		<put-attribute name="body" value="/WEB-INF/providerConnected.jsp" />
 	</definition>
 	<definition name="connect/facebookConnect.layout" extends=".mainTemplateWithHeader">
-		<put-attribute name="body" value="/WEB-INF/providerConnect.jsp" />
+			<put-attribute name="provider" value="facebook" type="string"
+			cascade="true" />
+		<put-attribute name="body" value="/WEB-INF/oauthconnect.jsp" />
 	</definition>
 	#end
 
@@ -90,7 +96,9 @@
 		<put-attribute name="body" value="/WEB-INF/providerConnected.jsp" />
 	</definition>
 	<definition name="connect/lastfmConnect.layout" extends=".mainTemplateWithHeader">
-		<put-attribute name="body" value="/WEB-INF/providerConnect.jsp" />
+			<put-attribute name="provider" value="lastfm" type="string"
+			cascade="true" />
+		<put-attribute name="body" value="/WEB-INF/oauthconnect.jsp" />
 	</definition>
 	#end
 
@@ -102,7 +110,9 @@
 		<put-attribute name="body" value="/WEB-INF/providerConnected.jsp" />
 	</definition>
 	<definition name="connect/soundcloudConnect.layout" extends=".mainTemplateWithHeader">
-		<put-attribute name="body" value="/WEB-INF/providerConnect.jsp" />
+			<put-attribute name="provider" value="soundcloud" type="string"
+			cascade="true" />
+		<put-attribute name="body" value="/WEB-INF/oauthconnect.jsp" />
 	</definition>
 	#end
 
@@ -113,7 +123,9 @@
 		<put-attribute name="body" value="/WEB-INF/providerConnected.jsp" />
 	</definition>
 	<definition name="connect/mixcloudConnect.layout" extends=".mainTemplateWithHeader">
-		<put-attribute name="body" value="/WEB-INF/providerConnect.jsp" />
+			<put-attribute name="provider" value="mixcloud" type="string"
+			cascade="true" />
+		<put-attribute name="body" value="/WEB-INF/oauthconnect.jsp" />
 	</definition>
 	#end
 
@@ -125,7 +137,9 @@
 	</definition>
 
 	<definition name="connect/linkedinConnect.layout" extends=".mainTemplateWithHeader">
-		<put-attribute name="body" value="/WEB-INF/providerConnect.jsp" />
+			<put-attribute name="provider" value="linkedin" type="string"
+			cascade="true" />
+		<put-attribute name="body" value="/WEB-INF/oauthconnect.jsp" />
 	</definition>
 	#end
 

@@ -10,6 +10,8 @@
 <p>Hello World : <c:choose>
 	<c:when test="${securityLevel eq 'Protected'}">
 Protected Area.
+<p><a href="/">Home</a></p>
+
 </c:when>
 	<c:when test="${securityLevel eq 'Public'}">
 
