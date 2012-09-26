@@ -1,15 +1,18 @@
+Maven Archetype for SocialSignin webapp
+=======================================
+
 This archetype generates a SocialSignIn webapp, which provides out of the box support for
 
-1) spring-social modules  (Allows connection to 3 party provider APIs)
+- <a href="https://github.com/SpringSource/spring-social">spring-social</a>  modules  (Allows connection to 3 party provider APIs)
 
-2) spring-social-security ( Removes need for local user account management, delegating to 3rd party for login details - no
+- <a href="https://github.com/socialsignin/spring-social-security">spring-social-security</a> ( Removes need for local user account management, delegating to 3rd party for login details - no
 local usernames or passwords are needed. )
 
-3) socialsignin-modules   ( Easy configuration of spring social providers using component scanning )
+- <a href="https://github.com/socialsignin/socialsignin-provider">socialsignin-provider</a>  modules ( Easy configuration of spring social providers using component scanning )
 
 
 To use this archetype use the mvn archetype:generate plugin:
-
+```
 mvn archetype:generate \
 -DarchetypeRepository=http://repo.opensourceagility.com/snapshots \
 -DarchetypeGroupId=org.socialsignin  \
@@ -18,7 +21,7 @@ mvn archetype:generate \
 -DgroupId=com.mygroup \
 -DartifactId=myartifactid \
 -Dversion=1.0.0-SNAPSHOT 
-
+```
 where the groupId,artifactId and version properties are your own project values.
 
 Properties which can be specified for this archetype are the list of providers to be supported, 
@@ -34,6 +37,8 @@ To override these defaults (ie. to change the list of providers supported, to se
 your app, or to switch off in-memory database, answer 'N' when asked to confirm the default properties and you
 can then enter your chosen values.
 
+Configuring and running the generated webapp
+--------------------------------------------
 
 Once you have created your new project using this archetype, you'll need to obtain client API accounts for your chosen
 providers and ensure that the client ids and secrets are set in the environment.properties file.  
