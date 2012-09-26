@@ -1,4 +1,4 @@
-Maven Archetype for SocialSignin webapp
+Maven Archetype for a SocialSignin webapp
 =======================================
 
 This archetype generates a SocialSignIn webapp, which provides out of the box support for
@@ -10,6 +10,10 @@ local usernames or passwords are needed. )
 
 - <a href="https://github.com/socialsignin/socialsignin-provider">socialsignin-provider</a>  modules ( Easy configuration of spring social providers using component scanning )
 
+An example of a webapp created from this archetype is <a href="https://github.com/socialsignin/socialsignin-showcase">socialsignin-showcase</a>
+
+Generating a SocialSignIn webapp from this archetype
+----------------------------------------------------
 
 To use this archetype use the mvn archetype:generate plugin:
 ```
